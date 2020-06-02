@@ -2,20 +2,38 @@
 
 {% block content%}
 
-<h1>Hello World</h1>
-<br/>
-<!-- Parsing though Python list-->
-Observation Date: {{ api.0.DateObserved }} <br/>
-Reporting Area: {{ api.0.ReportingArea}} <br/>
-<br/>
-<!-- Access O3 data from api content -->
-Category: {{ api.0.ParameterName}}, {{ api.0.Category.Name}} <br/>
-Air Quality: {{ api.0.AQI }} <br/>
-<!--<h6>Category: {{ api.0.Category.Name}} </h6><br/>-->
-<!-- Access PM2.5 data from api content -->
-Category: {{ api.1.ParameterName}}, {{ api.1.Category.Name}} <br/>
-Air Quality: {{ api.1.AQI }} <br/>
-<!-- Access PM10 data from api content -->
-Category: {{ api.2.ParameterName}}, {{ api.2.Category.Name}} <br/>
-Air Quality: {{ api.2.AQI }} <br/>
+{% if api %}
+   {% if api == "420-Error" %}
+      420 Error Occured
+   {% else %}
+
+   <div class="jumbotron {{ category_colour }}">
+     <h1 class="display-6">
+       <!-- Access O3 data from api content -->
+       Category: {{ api.0.ParameterName}}, {{ api.0.Category.Name}} <br/>
+       {{ api.0.ReportingArea}} Air Quality: {{ api.0.AQI }} <br/>
+     </h1>
+     <p class="lead">Observation Date: {{ api.0.DateObserved }} <br/></p>
+     <!--<hr class="my-4"> -->
+     <p>Index indicator description: <br/></p>
+
+     <p>{{ category_description }} <br/></p>
+
+     <a class="btn btn-primary btn-lg" href="{% url 'about' %}" role="button">Learn more</a>
+   </div>
+       <!-- Parsing though Python list-->
+       Observation Date: {{ api.0.DateObserved }} <br/>
+       <!--Reporting Area: {{ api.0.ReportingArea}} <br/> -->
+       <br/>
+       <!--<h6>Category: {{ api.0.Category.Name}} </h6><br/>-->
+       <!-- Access PM2.5 data from api content -->
+       Category: {{ api.1.ParameterName}}, {{ api.1.Category.Name}} <br/>
+       Air Quality: {{ api.1.AQI }} <br/>
+       <!-- Access PM10 data from api content -->
+       Category: {{ api.2.ParameterName}}, {{ api.2.Category.Name}} <br/>
+       Air Quality: {{ api.2.AQI }} <br/>
+
+    {% endif %}
+{% endif %}
+
 {%endblock%}
