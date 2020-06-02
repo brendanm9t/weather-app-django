@@ -1,0 +1,71 @@
+mkdir /home/brendan_m/Desktop/Freelance/udemy/django/weather
+
+python -m venv venv
+
+source venv/bin/activate # Use < conda deactivate > to deactivate
+
+django-admin.py startproject weather
+
+cd weather/
+
+python manage.py migrate
+
+python manage.py runserver
+
+localhost:8000 # Run in web browser
+
+python manage.py createsuperuser # Once per project
+brendanm9t MassT1ff
+
+python manage.py startapp lookup
+(add lookup app to the setup files. Main program - settings.py)
+
+add urls.py to lookup app
+
+include path for lookup.urls to main url.py
+
+add templates folder under lookup app
+
+add home.html to templates folder # This will become your home page
+
+define a view for home.html in view.py under the lookup app
+
+add base.html to templates under lookup # base.html will be used mainly
+
+link home.html with base.html
+
+add about.html to templates under lookup # Can remove .html from url.py
+
+create a view for about
+
+add bootsrap starter template content to base.html & add div class="container" for block content
+<br/>
+    <div class="container">
+      {%block content%}
+
+      {%endblock%}
+  </div>
+
+to the <body> of base.html, add the navbar code from
+
+Change submit button type & navbar colour
+
+Hide Disabled tab from navbar
+
+Hide the dropdown menu from the navbar
+
+Change Navbar to Weather Application
+
+Change the reference point when you click Weather Application
+<a class="navbar-brand" href="/">Wea...
+
+Change the Link to About Me & update reference to page
+<a class="nav-link" href="/about.html">Ab...
+
+Change about link using Django links
+From: <a class="nav-link" href="/about.html">About Us</a>
+To: <a class="nav-link" href="{% url 'about' %}">About Us</a>
+
+Change Home link using Django links
+From: <a class="navbar-brand" href="/">Weather Application</a>
+To: <a class="navbar-brand" href="{% url 'home' %}">Weather Application</a>
