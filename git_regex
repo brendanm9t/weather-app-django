@@ -1,11 +1,15 @@
 git status
 git add .
 git commit -am 'Description for commit'
-git push -u origin master
+git push
 
+# Initial commit
 git config --global --list
 export GPG_TTY=$(tty)
-
+git remote add origin git@github.com:username/example-repo.git
+git add .
+git commit -am 'Description for commit'
+git push -u origin master
 
 git config --global user.name "Your Name"
 git config --global user.email "username@email.com"
