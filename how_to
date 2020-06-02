@@ -1,4 +1,4 @@
-mkdir /home/brendan_m/Desktop/Freelance/udemy/django/weather
+mkdir /udemy/django/weather
 
 python -m venv venv
 
@@ -15,7 +15,6 @@ python manage.py runserver
 localhost:8000 # Run in web browser
 
 python manage.py createsuperuser # Once per project
-brendanm9t MassT1ff
 
 python manage.py startapp lookup
 (add lookup app to the setup files. Main program - settings.py)
