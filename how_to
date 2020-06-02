@@ -73,3 +73,13 @@ Version control using github:
 git add .
 git commit -am 'Description for commit'
 git push
+
+# Changes from here
+Update the homepage view:
+import json, resuests
+add url from api to api_requests
+add Python error handling routine to home view
+Add api variable (API content) to request render
+Add call to api variable in home.html
+Refine display to home, first item in api content list
+
