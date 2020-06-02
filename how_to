@@ -68,3 +68,8 @@ To: <a class="nav-link" href="{% url 'about' %}">About Us</a>
 Change Home link using Django links
 From: <a class="navbar-brand" href="/">Weather Application</a>
 To: <a class="navbar-brand" href="{% url 'home' %}">Weather Application</a>
+
+Version control using github:
+git add .
+git commit -am 'initial commit'
+git push
