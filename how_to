@@ -74,12 +74,55 @@ git add .
 git commit -am 'Description for commit'
 git push
 
-# Changes from here
 Update the homepage view:
 import json, resuests
 add url from api to api_requests
 add Python error handling routine to home view
 Add api variable (API content) to request render
 Add call to api variable in home.html
-Refine display to home, first item in api content list
+Refine display to home
+Refine homepage error handling
+Update home view with <div class="jumbotron">
+  <h1 class="display-4">Hello, world!</h1>
+  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+  <hr class="my-4">
+  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+</div>
+Add previously refined outputs to jumbotron routine
+Add Index indicator description
+Add basic css for colour:
+<style>
+  .good {background-color: #00e400;}
+  .moderate {background-color: #ffff00;}
+  .UnhealthySensitiveGroups {background-color: #ff7e00;}
+  .unhealthy {background-color: #ff0000;}
+  .veryunhealthy {background-color: #8f3f97;}
+  .hazardous {background-color: #7e0023;}
+</style>
+Update home render in views.py with:
+{% if api.0.Category.Number == 1 %}
+   <p>(0 - 50): Air quality is satisfactory, and air pollution poses little or no risk. <br/></p>
+ {% elif api.0.Category.Number == 2 %}
+   <p>(51 to 100): Air quality is acceptable. However, there may be a risk for some people, particularly those who are unusually sensitive to air pollution. <br/></p>
+ {% elif api.0.Category.Number == 3 %}
+   <p>(101 to 150): Members of sensitive groups may experience health effects. The general public is less likely to be affected. <br/></p>
+ {% elif api.0.Category.Number == 4 %}
+   <p>(151 to 200): Some members of the general public may experience health effects; members of sensitive groups may experience more serious health effects. <br/></p>
+ {% elif api.0.Category.Number == 5 %}
+   <p>(201 to 300): Health alert: The risk of health effects is increased for everyone. <br/></p>
+ {% elif api.0.Category.Number == 6 %}
+   <p>(301 and higher): Health warning of emergency conditions: everyone is more likely to be affected. <br/></p>
+ {% endif %}
+Remove django code & convert to Python
+Remove Python coding from home.html
+Add category_description to context variables in views.py
+Add category_colour to context variables in views.py
+Update placeholder & display of the Search bar in base.html
+Add csrf token to the form
+Create django link to point home from the form in base.html
+Add an action & a method to the form
+Add name="zipcode" to input to the form
+Split home view into get & POST
 
+# Changes from here
