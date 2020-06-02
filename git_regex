@@ -1,0 +1,28 @@
+git status
+export GPG_TTY=$(tty)
+git add .
+git commit -am 'Description for commit'
+git push
+
+git config --global user.name "Your Name"
+git config --global user.email "username@email.com"
+git config --global push.default matching
+git config --global alias.co checkout
+git init
+
+
+cat id_rsa.pub # Copy output SSH keys
+
+# Security setup
+## From start
+mkdir ~/.ssh
+cd ~/.ssh
+ssh-keygen -t rsa -b 4096 -C username@email.com
+## Already generated
+ls -al ~/.ssh
+eval $(ssh-agent -s)
+ssh-add ~/.ssh/id_rsa
+clip < ~/.ssh/id_rsa.pub
+###    sudo apt-get install xclip
+xclip -sel clip < ~/.ssh/id_rsa.pub
+clip < ~/.ssh/id_rsa.pub
