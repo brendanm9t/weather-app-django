@@ -71,5 +71,5 @@ To: <a class="navbar-brand" href="{% url 'home' %}">Weather Application</a>
 
 Version control using github:
 git add .
-git commit -am 'initial commit'
+git commit -am 'Description for commit'
 git push
