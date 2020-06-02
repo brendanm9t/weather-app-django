@@ -1,4 +1,4 @@
-mkdir /home/brendan_m/Desktop/Freelance/udemy/django/weather
+mkdir /udemy/django/weather
 
 python -m venv venv
 
